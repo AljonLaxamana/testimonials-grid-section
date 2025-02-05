@@ -1,0 +1,198 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Default colors */
+:root {
+  --prm-moderate-violet: hsl(263, 55%, 52%);
+  --prm-very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --prm-very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --prm-white: hsl(0, 0%, 100%);
+
+  --neu-light-gray: hsl(0, 0%, 81%);
+  --neu-light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/* General styles */
+body {
+  font-family: "Barlow Semi Condensed", serif;
+  font-size: 13px;
+  padding: 5rem 1.5rem;
+  background-color: var(--neu-light-grayish-blue);
+}
+
+.testimonials-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.article-container {
+  cursor: pointer;
+  padding: 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--prm-white);
+}
+
+.article-container:hover {
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+  transform: scale(1.01);
+
+  transition: all ease-in-out 250ms;
+}
+
+.article-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.article-profile > img {
+  border-radius: 50%;
+  border: 2px solid inherit;
+  height: 40px;
+  width: 40px;
+}
+
+.article-container:nth-child(1) {
+  background-color: var(--prm-moderate-violet);
+  background-image: url(/images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: 90% 0;
+}
+
+.article-container:nth-child(2) {
+  background-color: var(--prm-very-dark-grayish-blue);
+}
+
+.article-container:nth-child(4) {
+  background-color: var(--prm-very-dark-blackish-blue);
+}
+
+.article-testimonial {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.article-name {
+  font-size: 1rem;
+}
+
+.dark-text {
+  color: var(--prm-very-dark-grayish-blue);
+}
+
+.light-text {
+  color: var(--prm-white);
+}
+
+.article-position {
+  opacity: 50%;
+}
+
+.border-color-dark-violet {
+  border: 2px solid var(--prm-moderate-violet);
+}
+
+.border-color-lght-violet {
+  border: 2px solid rgb(197, 148, 197);
+}
+
+.article-short-message {
+  opacity: 70%;
+}
+
+@media only screen and (min-width: 900px) {
+  body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+  .testimonials-container {
+    max-width: 80rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .article-container:first-child {
+    grid-column: span 2;
+  }
+
+  .article-container:nth-child(4) {
+    grid-column: span 2;
+  }
+  .article-container:last-child {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+}
